@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-checkpoint">
+        <br>
+        <!-- exercicio 2 -->
+        <section class="exercicios">
+            <h2>Switch-Meses</h2>
+            @switch (mes) {
+            @case (1) { <p>Janeiro</p> }
+            @case (2) { <p>Fevereiro</p> }
+            @case (3) { <p>Março</p> }
+            @case (4) { <p>Abril</p> }
+            @case (5) { <p>Maio</p> }
+            @case (6) { <p>Junho</p> }
+            @case (7) { <p>Julho</p> }
+            @case (8) { <p>Agosto</p> }
+            @case (9) { <p>Setembro</p> }
+            @case (10) { <p>Outubro</p> }
+            @case (11) { <p>Novembro</p> }
+            @case (12) { <p>Dezembro</p> }
+            @default { <p class="error">Mês inválido</p> }
+            }
+        </section>
+        <br>
+        <!-- exercicio 3 -->
+        <section class="exercicios">
+            <h2>Lista de Compras</h2>
+            <ul>
+                @for (lista of itens; track $index) {
+                <li>{{lista}}</li>
+                }
+            </ul>
+            <p>Nenhum item na lista</p>
+        </section>
+        <br>
+        <!-- exercicio 4 -->
+        <section class="exercicios">
+            <h2>Maioridade</h2>
+            @if (idade >= 18) {
+            <p>acesso permitido</p>
+            }
+            @else {
+            <p>acesso negado</p>
+            }
+            <div class="botao">
+                <button (click)="aumentarIdade()">Aumentar Idade</button>
+                <button (click)="diminuirIdade()">Diminuir Idade</button>
+            </div>
+        </section>
+        <br>
+        <!-- exercicio 5 -->
+        <section class="exercicios">
+            <h2>Lista de tarefas</h2>
+            <ul>
+                @for (tarefas of listaDeTarefas; track $index) {
+                <li>
+                    {{tarefas}}
+                    <button (click)="remover($index)">Remover Tarefa</button>
+                </li>
+                }
+                @empty {
+                <p>Nenhuma tarefa vazia</p>
+                }
+            </ul>
+        </section>
+        <br>
+        <!-- exercicio 6  -->
+        <section class="exercicios">
+            <h2>Acompanhar Padido</h2>
+            <select [(ngModel)]="status">
+                <option value="pendente">pendente</option>
+                <option value="aguardando">enviado</option>
+                <option value="pendente">entregue</option>
+
+                @switch (status) {
+
+                @case(`pendente`){
+                <p>aguardando</p>
+                }
+                @case (`enviado`) {
+                <p>
+                    a caminho
+                </p>
+                }
+                @case (`entregue`) {
+                <p>
+                    pedido entregue
+                </p>
+                }
+                @default {
+                <p>
+                    Status desconhecido
+                </p>
+                }
+                }
+            </select>
+        </section>
+        <br>
+        <!-- exercicio 7 -->
+        <section class="exercicios">
+            <h2>Lista de Usuarios</h2>
+            <div>
+                <ul>
+                    @for (usuario of usuarios; track usuario.nome) {
+                    <li>nome: {{usuario.nome}}, Idade: {{usuario.idade}}</li>
+                    }
+                    @empty {
+                    <p> usuario não cadastrado</p>
+                    }
+                </ul>
+            </div>
+        </section>
+        <br>
+        <!-- exercicio 8 -->
+        <section>
+            <h2>Numeros switch</h2>
+            <select [(ngModel)]="valor" placeholder="Digite um valor até 2:">
+                @switch (valor) {
+                @case(`1`){
+                <p>um</p>
+                }
+                @case (`2`) {
+                <p>
+                    dois
+                </p>
+                }
+                }
+            </select>
+        </section>
+    </div>
+</body>
+
+</html>
